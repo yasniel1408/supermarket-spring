@@ -1,4 +1,4 @@
-package com.supermarket.config;
+package com.supermarket.web.config;
 
 import org.hibernate.dialect.Dialect;
 import org.hibernate.dialect.function.SQLFunctionTemplate;
