@@ -3,6 +3,8 @@ package com.supermarket.web.controller;
 import com.supermarket.domain.dto.ProductDto;
 import com.supermarket.domain.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,8 +18,8 @@ public class ProductController {
     private ProductService productService;
 
     @GetMapping
-    public List<ProductDto> getAllProducts(){
-        return productService.getAllProducts();
+    public ResponseEntity<List<ProductDto>> getAllProducts(){
+        return new ResponseEntity<>(productService.getAllProducts(), HttpStatus.OK);
     }
 
     @GetMapping("/category/{categoryId}")
@@ -26,18 +28,21 @@ public class ProductController {
     }
 
     @GetMapping("/{productId}")
-    public Optional<ProductDto> getOneProduct(@PathVariable("productId") Long productId) {
-        return productService.getOneProduct(productId);
+    public ResponseEntity<ProductDto> getOneProduct(@PathVariable("productId") Long productId) {
+        return productService.getOneProduct(productId)
+                    .map(p -> new ResponseEntity<>(p, HttpStatus.OK))
+                    .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
     @PostMapping
-    public ProductDto saveProduct(@RequestBody ProductDto productDto) {
-        return productService.saveProduct(productDto);
+    public ResponseEntity<ProductDto> saveProduct(@RequestBody ProductDto productDto) {
+        return new ResponseEntity<>(productService.saveProduct(productDto), HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{productId}")
-    public boolean deleteProduct(@PathVariable("productId") Long productId) {
-        return productService.deleteProduct(productId);
+    public ResponseEntity deleteProduct(@PathVariable("productId") Long productId) {
+        if(productService.deleteProduct(productId)) return new ResponseEntity(HttpStatus.OK);
+        return new ResponseEntity(HttpStatus.NOT_FOUND);
     }
 
 }
