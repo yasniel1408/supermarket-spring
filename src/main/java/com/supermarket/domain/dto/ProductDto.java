@@ -1,19 +1,17 @@
 package com.supermarket.domain.dto;
 
-import lombok.Data;
+import lombok.*;
 
-import java.io.Serializable;
-import java.time.LocalDateTime;
-
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
-public class ProductDto implements Serializable {
-    private final Long id;
-    private final LocalDateTime createdDate;
-    private final LocalDateTime lastModifiedDate;
-    private final Long version;
-    private final String name;
-    private final String barCode;
-    private final Double salePrice;
-    private final Integer cantStock;
-    private final Boolean state;
+public class ProductDto {
+    private String name;
+    private String barCode;
+    private Double salePrice;
+    private Integer cantStock;
+    private Boolean state;
+    private Long categoryId;
 }

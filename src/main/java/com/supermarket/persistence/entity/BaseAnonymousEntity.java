@@ -19,7 +19,7 @@ public abstract class BaseAnonymousEntity {
      * Id
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO) // AUTO, IDENTITY
     private Long id;
 
     /**

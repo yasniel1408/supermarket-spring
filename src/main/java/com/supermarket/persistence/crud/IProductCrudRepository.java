@@ -1,13 +1,13 @@
 package com.supermarket.persistence.crud;
 
 import com.supermarket.persistence.entity.Product;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface ProductCrudRepository extends CrudRepository<Product, Long> {
+public interface IProductCrudRepository extends JpaRepository<Product, Long> {
 
     /**
      * Example Query Method findByCategoryIdOrderByNameAsc
