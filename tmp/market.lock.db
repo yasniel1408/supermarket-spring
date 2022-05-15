@@ -1,6 +1,6 @@
 #FileLock
-#Sat May 14 21:39:06 UTC 2022
-server=10.100.0.7\:1700
+#Sun May 15 05:57:42 CEST 2022
+server=10.100.0.7\:28257
 hostName=DESKTOP-UEN0R3C
 method=file
-id=180c460ef1f0e34458b5fe66ebe2629d6ad7608e350
+id=180c5dd6646e5cd6a0d0b617818cbfd405d5f4549d0

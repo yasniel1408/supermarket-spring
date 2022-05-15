@@ -6,7 +6,7 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "product.sql")
+@Table(name = "product")
 @Getter
 @Setter
 public class Product extends BaseAnonymousEntity {
@@ -29,7 +29,7 @@ public class Product extends BaseAnonymousEntity {
     private Double salePrice;
 
     /**
-     * Cant in stock
+     * Cantidad en stock
      */
     @Column(name = "cant_stock")
     private Integer cantStock;
@@ -38,6 +38,12 @@ public class Product extends BaseAnonymousEntity {
      * State
      */
     private Boolean state;
+
+    /**
+     * Category id
+     */
+    @Column(name = "id_category")
+    private Long categoryId;
 
     /**
      * Client
